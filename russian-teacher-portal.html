@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natasha Volkov — Private Russian Tutor</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F3EC;
+    --deep: #1A1410;
+    --red: #C0392B;
+    --red-muted: #8B2D22;
+    --gold: #B8965A;
+    --gold-light: #E8D5A8;
+    --warm-gray: #6B6057;
+    --ink: #2C2218;
+    --border: rgba(26,20,16,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 5vw;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(4px);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    color: var(--deep);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--red); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  nav ul a {
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--warm-gray);
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--red); }
+
+  .nav-cta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.55rem 1.4rem;
+    border: 1px solid var(--red);
+    color: var(--red);
+    transition: all 0.25s;
+  }
+
+  .nav-cta:hover {
+    background: var(--red);
+    color: var(--cream);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 5vw 6rem 10vw;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '— ';
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 4.5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.12;
+    color: var(--deep);
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-cyrillic {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    color: var(--red);
+    margin-bottom: 2rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-desc {
+    font-size: 1.15rem;
+    color: var(--warm-gray);
+    font-weight: 300;
+    max-width: 38ch;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 2.2rem;
+    background: var(--red);
+    color: var(--cream);
+    border: 1px solid var(--red);
+    transition: all 0.25s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--red-muted);
+    border-color: var(--red-muted);
+  }
+
+  .btn-ghost {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--warm-gray);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--deep); }
+  .btn-ghost::after { content: '→'; font-style: normal; }
+
+  .hero-visual {
+    position: relative;
+    background: var(--deep);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--cream) 0,
+      var(--cream) 1px,
+      transparent 0,
+      transparent 50%
+    );
+    background-size: 20px 20px;
+  }
+
+  .hero-portrait-area {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 3rem;
+  }
+
+  .portrait-frame {
+    width: 320px;
+    height: 420px;
+    border: 1px solid rgba(184,150,90,0.4);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portrait-frame::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(184,150,90,0.2);
+  }
+
+  .portrait-inner {
+    text-align: center;
+    color: var(--gold-light);
+  }
+
+  .portrait-cyrillic-large {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: rgba(184,150,90,0.3);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .portrait-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+  }
+
+  .portrait-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(232,213,168,0.5);
+    margin-top: 0.5rem;
+  }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 2.5rem;
+    right: 2.5rem;
+    display: flex;
+    gap: 2rem;
+    z-index: 2;
+  }
+
+  .stat {
+    text-align: center;
+    border-top: 1px solid rgba(184,150,90,0.3);
+    padding-top: 1rem;
+    flex: 1;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    display: block;
+  }
+
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(232,213,168,0.5);
+  }
+
+  /* ── ABOUT ── */
+  section { padding: 7rem 10vw; }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--gold-light);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 600;
+    color: var(--deep);
+    line-height: 1.2;
+    margin-bottom: 1.8rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--warm-gray);
+    font-weight: 300;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text p em {
+    color: var(--red);
+    font-style: italic;
+  }
+
+  .credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .credential-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    background: white;
+    transition: border-color 0.2s;
+  }
+
+  .credential-item:hover { border-color: var(--gold); }
+
+  .credential-icon {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem;
+    color: var(--red);
+    flex-shrink: 0;
+    width: 32px;
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  .credential-body strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--deep);
+    margin-bottom: 0.2rem;
+  }
+
+  .credential-body span {
+    font-size: 0.9rem;
+    color: var(--warm-gray);
+  }
+
+  /* ── PROGRAMS ── */
+  #programs { background: var(--deep); }
+
+  #programs .section-label { color: var(--gold); }
+  #programs .section-label::after { background: rgba(184,150,90,0.3); }
+
+  #programs h2 { color: var(--cream); }
+
+  .programs-intro {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: rgba(247,243,236,0.55);
+    margin-bottom: 4rem;
+    max-width: 55ch;
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .program-card {
+    background: var(--deep);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .program-card:hover { background: #231A14; }
+
+  .program-level {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .program-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .program-cyrillic {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: rgba(184,150,90,0.6);
+    margin-bottom: 1.5rem;
+  }
+
+  .program-desc {
+    font-size: 0.95rem;
+    color: rgba(247,243,236,0.5);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .program-includes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .program-includes li {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: rgba(232,213,168,0.6);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .program-includes li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+  }
+
+  .program-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--cream);
+  }
+
+  .price-note {
+    font-size: 0.85rem;
+    color: rgba(247,243,236,0.35);
+  }
+
+  .program-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.2s;
+  }
+
+  .program-link:hover { gap: 0.9rem; }
+  .program-link::after { content: '→'; }
+
+  /* ── METHOD ── */
+  #method { background: white; }
+
+  .method-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .method-visual {
+    position: relative;
+  }
+
+  .method-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    font-style: italic;
+    color: var(--deep);
+    line-height: 1.5;
+    padding: 2.5rem;
+    border-left: 3px solid var(--red);
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .method-quote::before {
+    content: '«';
+    position: absolute;
+    top: -0.5rem;
+    left: 1.5rem;
+    font-size: 4rem;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .method-attribution {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    padding-left: 2.5rem;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--gold-light);
+    flex-shrink: 0;
+    width: 2rem;
+    text-align: right;
+    font-style: italic;
+  }
+
+  .step-body strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--deep);
+    margin-bottom: 0.3rem;
+  }
+
+  .step-body p {
+    font-size: 0.95rem;
+    color: var(--warm-gray);
+    line-height: 1.7;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--cream); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .testimonial-card {
+    background: white;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .testimonial-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--gold-light);
+    line-height: 0.8;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--warm-gray);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .testimonial-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    color: var(--cream);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .testimonial-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--deep);
+  }
+
+  .testimonial-context {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--warm-gray);
+  }
+
+  .stars {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
+  }
+
+  /* ── BOOKING ── */
+  #booking { background: var(--deep); }
+
+  #booking .section-label { color: var(--gold); }
+  #booking .section-label::after { background: rgba(184,150,90,0.3); }
+  #booking h2 { color: var(--cream); }
+
+  .booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .booking-info p {
+    font-size: 1.05rem;
+    color: rgba(247,243,236,0.55);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .contact-item-icon {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gold);
+    width: 20px;
+    text-align: center;
+  }
+
+  .contact-item-text {
+    font-size: 0.95rem;
+    color: rgba(247,243,236,0.6);
+  }
+
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(232,213,168,0.5);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(184,150,90,0.2);
+    color: var(--cream);
+    padding: 0.85rem 1rem;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(247,243,236,0.2); }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+
+  .form-group select option { background: var(--deep); color: var(--cream); }
+
+  .form-group textarea { resize: none; min-height: 100px; }
+
+  .form-submit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 1.1rem 2.5rem;
+    background: var(--red);
+    color: var(--cream);
+    border: 1px solid var(--red);
+    cursor: pointer;
+    transition: all 0.25s;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover { background: var(--red-muted); border-color: var(--red-muted); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0F0B08;
+    padding: 3rem 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(184,150,90,0.1);
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--gold-light);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-logo span { color: var(--red); }
+
+  .footer-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: rgba(232,213,168,0.3);
+  }
+
+  .footer-copy {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: rgba(232,213,168,0.25);
+    text-align: right;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-text > * {
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .hero-eyebrow { animation-delay: 0.1s; }
+  h1 { animation-delay: 0.25s; }
+  .hero-cyrillic { animation-delay: 0.38s; }
+  .hero-desc { animation-delay: 0.5s; }
+  .hero-actions { animation-delay: 0.62s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .hero-text { padding: 4rem 7vw; }
+    .about-grid,
+    .method-grid,
+    .booking-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .programs-grid,
+    .testimonials-grid { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+    section { padding: 5rem 7vw; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Natasha<span>.</span>Volkov</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Book a lesson</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Private Russian Language Instruction</p>
+    <h1>Learn Russian<br>the authentic way</h1>
+    <p class="hero-cyrillic">Добро пожаловать</p>
+    <p class="hero-desc">From Cyrillic alphabet to fluid conversation — bespoke lessons guided by a Moscow-trained linguist with twelve years of teaching experience.</p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-primary">Book a free trial</a>
+      <a href="#programs" class="btn-ghost">View programs</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-pattern"></div>
+    <div class="hero-portrait-area">
+      <div class="portrait-frame">
+        <div class="portrait-inner">
+          <div class="portrait-cyrillic-large">Нв</div>
+          <p class="portrait-name">Natasha Volkov</p>
+          <p class="portrait-title">MA Linguistics · Moscow State University</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">12+</span>
+        <span class="stat-label">Years teaching</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">340</span>
+        <span class="stat-label">Students taught</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">4.9★</span>
+        <span class="stat-label">Average rating</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">About the teacher</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2>A linguist who believes every student has their own Russian to discover</h2>
+      <p>I grew up speaking Russian at home and studied linguistics at Moscow State University, graduating with distinction. After a decade of teaching in Moscow and Berlin, I now offer private lessons online and in person across London.</p>
+      <p>My lessons are never generic. Whether you're learning for <em>travel, business, heritage reconnection,</em> or pure curiosity, I build a programme that fits your pace, goals, and interests.</p>
+      <p>Russian is famously difficult — and famously rewarding. With the right guide, it becomes one of the most beautiful languages you'll ever speak.</p>
+    </div>
+    <div class="credentials">
+      <div class="credential-item">
+        <div class="credential-icon">🎓</div>
+        <div class="credential-body">
+          <strong>MA Linguistics, Moscow State University</strong>
+          <span>Specialisation in Slavic phonology and language acquisition</span>
+        </div>
+      </div>
+      <div class="credential-item">
+        <div class="credential-icon">📜</div>
+        <div class="credential-body">
+          <strong>CELTA Certified Teacher</strong>
+          <span>Cambridge Assessment English — Languages to Adults</span>
+        </div>
+      </div>
+      <div class="credential-item">
+        <div class="credential-icon">🌍</div>
+        <div class="credential-body">
+          <strong>Taught in 4 countries</strong>
+          <span>Russia, Germany, France, United Kingdom</span>
+        </div>
+      </div>
+      <div class="credential-item">
+        <div class="credential-icon">📖</div>
+        <div class="credential-body">
+          <strong>TORFL Exam Preparation</strong>
+          <span>Accredited to prepare students for all TORFL proficiency levels</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <p class="section-label">Programmes</p>
+  <h2>Lessons for every stage</h2>
+  <p class="programs-intro">Each programme is fully personalised. The levels below guide our starting point — not the ceiling.</p>
+
+  <div class="programs-grid">
+    <div class="program-card">
+      <p class="program-level">Level 01 — A1 / A2</p>
+      <h3 class="program-title">Foundations</h3>
+      <p class="program-cyrillic">Основы</p>
+      <p class="program-desc">Master the Cyrillic alphabet, essential grammar, and everyday phrases to communicate confidently from day one.</p>
+      <ul class="program-includes">
+        <li>Cyrillic script and pronunciation</li>
+        <li>Core grammar: cases, verbs of motion</li>
+        <li>Everyday vocabulary sets</li>
+        <li>Listening and reading exercises</li>
+      </ul>
+      <div class="program-price">
+        <span class="price-amount">£55</span>
+        <span class="price-note">/ 60 min lesson</span>
+      </div>
+      <a href="#booking" class="program-link">Enquire</a>
+    </div>
+
+    <div class="program-card">
+      <p class="program-level">Level 02 — B1 / B2</p>
+      <h3 class="program-title">Fluency</h3>
+      <p class="program-cyrillic">Свободное владение</p>
+      <p class="program-desc">Bridge the gap between textbook Russian and real conversations — from casual chat to professional dialogue.</p>
+      <ul class="program-includes">
+        <li>Conversational practice scenarios</li>
+        <li>Advanced verb aspects & tenses</li>
+        <li>Russian film and literature analysis</li>
+        <li>Written composition work</li>
+      </ul>
+      <div class="program-price">
+        <span class="price-amount">£65</span>
+        <span class="price-note">/ 60 min lesson</span>
+      </div>
+      <a href="#booking" class="program-link">Enquire</a>
+    </div>
+
+    <div class="program-card">
+      <p class="program-level">Level 03 — C1 / C2</p>
+      <h3 class="program-title">Mastery</h3>
+      <p class="program-cyrillic">Мастерство</p>
+      <p class="program-desc">Refine your Russian to near-native precision — ideal for academic, business, or TORFL exam preparation.</p>
+      <ul class="program-includes">
+        <li>Stylistic nuance and register</li>
+        <li>Business Russian and formal writing</li>
+        <li>TORFL C1/C2 exam preparation</li>
+        <li>Literary and cultural deep-dives</li>
+      </ul>
+      <div class="program-price">
+        <span class="price-amount">£75</span>
+        <span class="price-note">/ 60 min lesson</span>
+      </div>
+      <a href="#booking" class="program-link">Enquire</a>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section id="method">
+  <p class="section-label">Teaching philosophy</p>
+  <div class="method-grid">
+    <div class="method-visual">
+      <div class="method-quote">
+        The goal is never to speak correct Russian — it is to speak <em>your</em> Russian, fully and naturally.
+      </div>
+      <p class="method-attribution">— Natasha Volkov</p>
+    </div>
+    <div>
+      <h2>A method built around how you actually learn</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">I</span>
+          <div class="step-body">
+            <strong>Diagnostic consultation</strong>
+            <p>Every student begins with a free 30-minute session to assess current level, learning style, and personal goals.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">II</span>
+          <div class="step-body">
+            <strong>Bespoke lesson plan</strong>
+            <p>I design a tailored curriculum — drawing on your interests, from Dostoevsky to business contracts.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">III</span>
+          <div class="step-body">
+            <strong>Immersive practice</strong>
+            <p>Lessons blend speaking, reading, writing, and listening in natural, engaging ways — no rote memorisation.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">IV</span>
+          <div class="step-body">
+            <strong>Continuous feedback</strong>
+            <p>Regular progress reviews and study materials shared between lessons to reinforce learning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <p class="section-label">Student reviews</p>
+  <h2>What students say</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Natasha transformed my understanding of Russian in just three months. Her patience and genuine passion for the language are extraordinary. I passed my B2 TORFL with distinction.</p>
+      <div class="testimonial-footer">
+        <div class="testimonial-avatar">JH</div>
+        <div>
+          <p class="testimonial-name">James H.</p>
+          <p class="testimonial-context">Business Russian · London</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">I started from zero and can now hold full conversations with my Russian grandmother. Natasha tailors every lesson perfectly. It never feels like studying — it feels like discovery.</p>
+      <div class="testimonial-footer">
+        <div class="testimonial-avatar">SB</div>
+        <div>
+          <p class="testimonial-name">Sofia B.</p>
+          <p class="testimonial-context">Heritage learner · Edinburgh</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">The depth of cultural context Natasha brings to lessons is unlike anything I'd experienced. Russian literature finally makes sense to me — and I'm genuinely in love with the language now.</p>
+      <div class="testimonial-footer">
+        <div class="testimonial-avatar">LM</div>
+        <div>
+          <p class="testimonial-name">Liam M.</p>
+          <p class="testimonial-context">Literature focus · Oxford</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <p class="section-label">Get in touch</p>
+  <h2>Book your first lesson</h2>
+  <div class="booking-grid">
+    <div class="booking-info">
+      <p>All new students receive a free 30-minute consultation. Lessons are available online via Zoom or in person in Central London.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <span class="contact-item-icon">✉</span>
+          <span class="contact-item-text">natasha@volkovrussian.co.uk</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">☏</span>
+          <span class="contact-item-text">+44 (0) 7700 900 123</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">◎</span>
+          <span class="contact-item-text">Central London & online — worldwide</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">◷</span>
+          <span class="contact-item-text">Mon–Sat, 8:00 am – 8:00 pm GMT</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="booking-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First name</label>
+          <input type="text" id="fname" placeholder="Anna" required>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last name</label>
+          <input type="text" id="lname" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="anna@example.com" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="level">Current level</label>
+          <select id="level">
+            <option value="">Select level…</option>
+            <option>Complete beginner</option>
+            <option>Elementary (A1–A2)</option>
+            <option>Intermediate (B1–B2)</option>
+            <option>Advanced (C1–C2)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="format">Lesson format</label>
+          <select id="format">
+            <option value="">Select format…</option>
+            <option>Online (Zoom)</option>
+            <option>In person — London</option>
+            <option>Either works for me</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="goals">Your goals</label>
+        <textarea id="goals" placeholder="Tell me a little about why you want to learn Russian and what you hope to achieve…"></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="submit-btn">Send enquiry →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">Natasha<span>.</span>Volkov</a>
+  <p class="footer-tagline">Русский язык — Russian language</p>
+  <p class="footer-copy">© 2025 Natasha Volkov<br>Private Russian Instruction</p>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Sent — I\'ll be in touch shortly ✓';
+  btn.style.background = '#2C6E49';
+  btn.style.borderColor = '#2C6E49';
+  btn.disabled = true;
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
