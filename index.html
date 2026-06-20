@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --cream: #F7F3EC;
     --deep: #1A1410;
@@ -19,9 +18,7 @@
     --ink: #2C2218;
     --border: rgba(26,20,16,0.12);
   }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'Crimson Pro', Georgia, serif;
     background: var(--cream);
@@ -29,7 +26,6 @@
     font-size: 18px;
     line-height: 1.7;
   }
-
   /* ── NAV ── */
   nav {
     position: fixed;
@@ -43,7 +39,6 @@
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(4px);
   }
-
   .nav-logo {
     font-family: 'Playfair Display', serif;
     font-size: 1.1rem;
@@ -51,15 +46,12 @@
     color: var(--deep);
     text-decoration: none;
   }
-
   .nav-logo span { color: var(--red); }
-
   nav ul {
     list-style: none;
     display: flex;
     gap: 2.5rem;
   }
-
   nav ul a {
     text-decoration: none;
     font-family: 'JetBrains Mono', monospace;
@@ -69,9 +61,7 @@
     text-transform: uppercase;
     transition: color 0.2s;
   }
-
   nav ul a:hover { color: var(--red); }
-
   .nav-cta {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.72rem;
@@ -83,12 +73,10 @@
     color: var(--red);
     transition: all 0.25s;
   }
-
   .nav-cta:hover {
     background: var(--red);
     color: var(--cream);
   }
-
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
@@ -96,7 +84,6 @@
     grid-template-columns: 1fr 1fr;
     padding-top: 80px;
   }
-
   .hero-text {
     display: flex;
     flex-direction: column;
@@ -104,7 +91,6 @@
     padding: 6rem 5vw 6rem 10vw;
     position: relative;
   }
-
   .hero-eyebrow {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
@@ -113,11 +99,9 @@
     color: var(--gold);
     margin-bottom: 1.5rem;
   }
-
   .hero-eyebrow::before {
     content: '— ';
   }
-
   h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.8rem, 4.5vw, 4rem);
@@ -126,7 +110,6 @@
     color: var(--deep);
     margin-bottom: 0.4rem;
   }
-
   .hero-cyrillic {
     font-family: 'Playfair Display', serif;
     font-style: italic;
@@ -135,7 +118,6 @@
     margin-bottom: 2rem;
     letter-spacing: 0.02em;
   }
-
   .hero-desc {
     font-size: 1.15rem;
     color: var(--warm-gray);
@@ -144,14 +126,12 @@
     margin-bottom: 3rem;
     line-height: 1.8;
   }
-
   .hero-actions {
     display: flex;
     gap: 1.2rem;
     align-items: center;
     flex-wrap: wrap;
   }
-
   .btn-primary {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
@@ -165,12 +145,10 @@
     transition: all 0.25s;
     display: inline-block;
   }
-
   .btn-primary:hover {
     background: var(--red-muted);
     border-color: var(--red-muted);
   }
-
   .btn-ghost {
     font-family: 'Crimson Pro', serif;
     font-size: 1rem;
@@ -182,10 +160,8 @@
     gap: 0.4rem;
     transition: color 0.2s;
   }
-
   .btn-ghost:hover { color: var(--deep); }
   .btn-ghost::after { content: '→'; font-style: normal; }
-
   .hero-visual {
     position: relative;
     background: var(--deep);
@@ -194,7 +170,6 @@
     align-items: flex-end;
     justify-content: center;
   }
-
   .hero-pattern {
     position: absolute;
     inset: 0;
@@ -208,7 +183,6 @@
     );
     background-size: 20px 20px;
   }
-
   .hero-portrait-area {
     position: relative;
     z-index: 2;
@@ -219,7 +193,6 @@
     justify-content: center;
     padding: 4rem 3rem;
   }
-
   .portrait-frame {
     width: 320px;
     height: 420px;
@@ -229,19 +202,16 @@
     align-items: center;
     justify-content: center;
   }
-
   .portrait-frame::before {
     content: '';
     position: absolute;
     inset: 12px;
     border: 1px solid rgba(184,150,90,0.2);
   }
-
   .portrait-inner {
     text-align: center;
     color: var(--gold-light);
   }
-
   .portrait-cyrillic-large {
     font-family: 'Playfair Display', serif;
     font-size: 5rem;
@@ -249,14 +219,12 @@
     line-height: 1;
     margin-bottom: 1.5rem;
   }
-
   .portrait-name {
     font-family: 'Playfair Display', serif;
     font-size: 1.3rem;
     color: var(--gold-light);
     letter-spacing: 0.05em;
   }
-
   .portrait-title {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.62rem;
@@ -265,7 +233,6 @@
     color: rgba(232,213,168,0.5);
     margin-top: 0.5rem;
   }
-
   .hero-stats {
     position: absolute;
     bottom: 2.5rem;
@@ -275,21 +242,18 @@
     gap: 2rem;
     z-index: 2;
   }
-
   .stat {
     text-align: center;
     border-top: 1px solid rgba(184,150,90,0.3);
     padding-top: 1rem;
     flex: 1;
   }
-
   .stat-num {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     color: var(--gold);
     display: block;
   }
-
   .stat-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.58rem;
@@ -297,10 +261,8 @@
     text-transform: uppercase;
     color: rgba(232,213,168,0.5);
   }
-
   /* ── ABOUT ── */
   section { padding: 7rem 10vw; }
-
   .section-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.68rem;
@@ -312,7 +274,6 @@
     gap: 1rem;
     margin-bottom: 3rem;
   }
-
   .section-label::after {
     content: '';
     flex: 1;
@@ -320,7 +281,6 @@
     height: 1px;
     background: var(--gold-light);
   }
-
   h2 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2rem, 3vw, 2.8rem);
@@ -329,32 +289,27 @@
     line-height: 1.2;
     margin-bottom: 1.8rem;
   }
-
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6rem;
     align-items: start;
   }
-
   .about-text p {
     color: var(--warm-gray);
     font-weight: 300;
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
   }
-
   .about-text p em {
     color: var(--red);
     font-style: italic;
   }
-
   .credentials {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
   }
-
   .credential-item {
     display: flex;
     gap: 1.2rem;
@@ -364,9 +319,7 @@
     background: white;
     transition: border-color 0.2s;
   }
-
   .credential-item:hover { border-color: var(--gold); }
-
   .credential-icon {
     font-family: 'JetBrains Mono', monospace;
     font-size: 1.2rem;
@@ -376,7 +329,6 @@
     text-align: center;
     margin-top: 2px;
   }
-
   .credential-body strong {
     display: block;
     font-family: 'Playfair Display', serif;
@@ -385,20 +337,15 @@
     color: var(--deep);
     margin-bottom: 0.2rem;
   }
-
   .credential-body span {
     font-size: 0.9rem;
     color: var(--warm-gray);
   }
-
   /* ── PROGRAMS ── */
   #programs { background: var(--deep); }
-
   #programs .section-label { color: var(--gold); }
   #programs .section-label::after { background: rgba(184,150,90,0.3); }
-
   #programs h2 { color: var(--cream); }
-
   .programs-intro {
     font-family: 'Crimson Pro', serif;
     font-style: italic;
@@ -407,23 +354,19 @@
     margin-bottom: 4rem;
     max-width: 55ch;
   }
-
   .programs-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5px;
     background: rgba(255,255,255,0.06);
   }
-
   .program-card {
     background: var(--deep);
     padding: 2.5rem 2rem;
     position: relative;
     transition: background 0.3s;
   }
-
   .program-card:hover { background: #231A14; }
-
   .program-level {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.62rem;
@@ -432,14 +375,12 @@
     color: var(--gold);
     margin-bottom: 1rem;
   }
-
   .program-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
     color: var(--cream);
     margin-bottom: 0.5rem;
   }
-
   .program-cyrillic {
     font-family: 'Playfair Display', serif;
     font-style: italic;
@@ -447,14 +388,12 @@
     color: rgba(184,150,90,0.6);
     margin-bottom: 1.5rem;
   }
-
   .program-desc {
     font-size: 0.95rem;
     color: rgba(247,243,236,0.5);
     line-height: 1.7;
     margin-bottom: 2rem;
   }
-
   .program-includes {
     list-style: none;
     display: flex;
@@ -462,7 +401,6 @@
     gap: 0.5rem;
     margin-bottom: 2rem;
   }
-
   .program-includes li {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.68rem;
@@ -471,32 +409,27 @@
     padding-left: 1rem;
     position: relative;
   }
-
   .program-includes li::before {
     content: '·';
     position: absolute;
     left: 0;
     color: var(--red);
   }
-
   .program-price {
     display: flex;
     align-items: baseline;
     gap: 0.4rem;
     margin-bottom: 1.8rem;
   }
-
   .price-amount {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     color: var(--cream);
   }
-
   .price-note {
     font-size: 0.85rem;
     color: rgba(247,243,236,0.35);
   }
-
   .program-link {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.68rem;
@@ -509,24 +442,19 @@
     gap: 0.5rem;
     transition: gap 0.2s;
   }
-
   .program-link:hover { gap: 0.9rem; }
   .program-link::after { content: '→'; }
-
   /* ── METHOD ── */
   #method { background: white; }
-
   .method-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6rem;
     align-items: center;
   }
-
   .method-visual {
     position: relative;
   }
-
   .method-quote {
     font-family: 'Playfair Display', serif;
     font-size: clamp(1.3rem, 2vw, 1.7rem);
@@ -538,7 +466,6 @@
     position: relative;
     margin-bottom: 2rem;
   }
-
   .method-quote::before {
     content: '«';
     position: absolute;
@@ -548,7 +475,6 @@
     color: var(--gold-light);
     line-height: 1;
   }
-
   .method-attribution {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.68rem;
@@ -557,18 +483,15 @@
     color: var(--warm-gray);
     padding-left: 2.5rem;
   }
-
   .steps {
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
-
   .step {
     display: flex;
     gap: 1.5rem;
   }
-
   .step-num {
     font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
@@ -578,7 +501,6 @@
     text-align: right;
     font-style: italic;
   }
-
   .step-body strong {
     display: block;
     font-family: 'Playfair Display', serif;
@@ -586,29 +508,24 @@
     color: var(--deep);
     margin-bottom: 0.3rem;
   }
-
   .step-body p {
     font-size: 0.95rem;
     color: var(--warm-gray);
     line-height: 1.7;
   }
-
   /* ── TESTIMONIALS ── */
   #testimonials { background: var(--cream); }
-
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
-
   .testimonial-card {
     background: white;
     padding: 2rem;
     border: 1px solid var(--border);
     position: relative;
   }
-
   .testimonial-card::before {
     content: '"';
     font-family: 'Playfair Display', serif;
@@ -618,7 +535,6 @@
     display: block;
     margin-bottom: 1rem;
   }
-
   .testimonial-text {
     font-style: italic;
     font-size: 1rem;
@@ -626,13 +542,11 @@
     line-height: 1.7;
     margin-bottom: 1.5rem;
   }
-
   .testimonial-footer {
     display: flex;
     align-items: center;
     gap: 0.8rem;
   }
-
   .testimonial-avatar {
     width: 36px;
     height: 36px;
@@ -646,60 +560,50 @@
     font-size: 0.85rem;
     flex-shrink: 0;
   }
-
   .testimonial-name {
     font-family: 'Playfair Display', serif;
     font-size: 0.95rem;
     color: var(--deep);
   }
-
   .testimonial-context {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.6rem;
     letter-spacing: 0.1em;
     color: var(--warm-gray);
   }
-
   .stars {
     color: var(--gold);
     font-size: 0.8rem;
     letter-spacing: 2px;
     margin-bottom: 0.8rem;
   }
-
   /* ── BOOKING ── */
   #booking { background: var(--deep); }
-
   #booking .section-label { color: var(--gold); }
   #booking .section-label::after { background: rgba(184,150,90,0.3); }
   #booking h2 { color: var(--cream); }
-
   .booking-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 5rem;
     align-items: start;
   }
-
   .booking-info p {
     font-size: 1.05rem;
     color: rgba(247,243,236,0.55);
     line-height: 1.8;
     margin-bottom: 2.5rem;
   }
-
   .contact-items {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
-
   .contact-item {
     display: flex;
     gap: 1rem;
     align-items: center;
   }
-
   .contact-item-icon {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
@@ -707,30 +611,25 @@
     width: 20px;
     text-align: center;
   }
-
   .contact-item-text {
     font-size: 0.95rem;
     color: rgba(247,243,236,0.6);
   }
-
   .booking-form {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
   }
-
   .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
-
   .form-group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
-
   .form-group label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.62rem;
@@ -738,7 +637,6 @@
     text-transform: uppercase;
     color: rgba(232,213,168,0.5);
   }
-
   .form-group input,
   .form-group select,
   .form-group textarea {
@@ -752,18 +650,13 @@
     transition: border-color 0.2s;
     appearance: none;
   }
-
   .form-group input::placeholder,
   .form-group textarea::placeholder { color: rgba(247,243,236,0.2); }
-
   .form-group input:focus,
   .form-group select:focus,
   .form-group textarea:focus { border-color: var(--gold); }
-
   .form-group select option { background: var(--deep); color: var(--cream); }
-
   .form-group textarea { resize: none; min-height: 100px; }
-
   .form-submit {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
@@ -777,9 +670,7 @@
     transition: all 0.25s;
     align-self: flex-start;
   }
-
   .form-submit:hover { background: var(--red-muted); border-color: var(--red-muted); }
-
   /* ── FOOTER ── */
   footer {
     background: #0F0B08;
@@ -789,7 +680,6 @@
     justify-content: space-between;
     border-top: 1px solid rgba(184,150,90,0.1);
   }
-
   .footer-logo {
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
@@ -797,16 +687,13 @@
     text-decoration: none;
     letter-spacing: 0.05em;
   }
-
   .footer-logo span { color: var(--red); }
-
   .footer-tagline {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 0.9rem;
     color: rgba(232,213,168,0.3);
   }
-
   .footer-copy {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.6rem;
@@ -814,24 +701,20 @@
     color: rgba(232,213,168,0.25);
     text-align: right;
   }
-
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
   .hero-text > * {
     opacity: 0;
     animation: fadeUp 0.7s ease forwards;
   }
-
   .hero-eyebrow { animation-delay: 0.1s; }
   h1 { animation-delay: 0.25s; }
   .hero-cyrillic { animation-delay: 0.38s; }
   .hero-desc { animation-delay: 0.5s; }
   .hero-actions { animation-delay: 0.62s; }
-
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; }
@@ -848,7 +731,6 @@
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Iryna<span>.</span>Kurekina</a>
@@ -860,7 +742,6 @@
   </ul>
   <a href="#booking" class="nav-cta">Book a lesson</a>
 </nav>
-
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-text">
@@ -873,7 +754,6 @@
       <a href="#programs" class="btn-ghost">View programs</a>
     </div>
   </div>
-
   <div class="hero-visual">
     <div class="hero-pattern"></div>
     <div class="hero-portrait-area">
@@ -881,8 +761,8 @@
         <div class="portrait-inner">
           <div class="portrait-cyrillic-large">Нв</div>
           <p class="portrait-name">Iryna Kurekina</p>
-          <p class="portrait-title">MA  philologist, teacher of Modern Foreign Languages (MFL) · Kharkiv State Pedagogical University in Ukraine</p>
-          <p class="portrait-title">MA teacher of Modern Foreign Languages (Russian and French) - Plymouth Marjon University,England,  UK</p>
+          <p class="portrait-title">MA  philologist, teacher of Modern Foreign Languages (MFL) · Kharkiv State Pedagogical University in Ukraine</p>
+          <p class="portrait-title">MA teacher of Modern Foreign Languages (Russian and French) - Plymouth Marjon University,England,  UK</p>
         </div>
       </div>
     </div>
@@ -898,7 +778,6 @@
     </div>
   </div>
 </section>
-
 <!-- ABOUT -->
 <section id="about">
   <p class="section-label">About the teacher</p>
@@ -937,6 +816,7 @@
           <strong>GCSE and A Level Exam Preparation</strong>
           <span>I prepare students for <b>GCSE</b> and <b>A Level</b> exams and conduct speaking parts of these exams at local schools</span>
         </div>
+      </div>
       <div class="credential-item">
         <div class="credential-icon">📖</div>
         <div class="credential-body">
@@ -949,13 +829,11 @@
     </div>
   </div>
 </section>
-
 <!-- PROGRAMS -->
 <section id="programs">
   <p class="section-label">Programmes</p>
   <h2>Lessons for every stage</h2>
   <p class="programs-intro">Each programme is fully personalised. The levels below guide our starting point — not the ceiling.</p>
-
   <div class="programs-grid">
     <div class="program-card">
       <p class="program-level">Level 01 — A1 / A2</p>
@@ -975,7 +853,6 @@
       </div>
       <a href="#booking" class="program-link">Enquire</a>
     </div>
-
     <div class="program-card">
       <p class="program-level">Level 02 — B1 / B2</p>
       <h3 class="program-title">Fluency</h3>
@@ -1000,14 +877,13 @@
     </div>
   </div>
 </section>
-
 <!-- METHOD -->
 <section id="method">
   <p class="section-label">Teaching philosophy</p>
   <div class="method-grid">
     <div class="method-visual">
       <div class="method-quote">
-        The goal  is not only to help students learn Russian but also to inspire a lifelong interest in the language and the rich cultural heritage of the Russian-speaking world.
+        The goal  is not only to help students learn Russian but also to inspire a lifelong interest in the language and the rich cultural heritage of the Russian-speaking world.
       </div>
       <p class="method-attribution">— Iryna Kurekina</p>
     </div>
@@ -1063,7 +939,6 @@
     </div>
   </div>
 </section>
-
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <p class="section-label">Student reviews</p>
@@ -1148,7 +1023,7 @@
     </div> 
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="testimonial-text">Hello. I am delighted to do feedback for Iryna. Iryna  is a high class proffessional and very demanding in the role of a French tutor for my son.My son told that he is very sattiisfied with her lessons and that makes him prepaed for the GCSE exams.</p>
+      <p class="testimonial-text">Hello. I am delighted to do feedback for Iryna. Iryna  is a high class proffessional and very demanding in the role of a French tutor for my son.My son told that he is very sattiisfied with her lessons and that makes him prepaed for the GCSE exams.</p>
       <div class="testimonial-footer">
         <div class="testimonial-avatar">JU</div>
         <div>
@@ -1170,7 +1045,6 @@
     </div>    
   </div>
 </section>
-
 <!-- BOOKING -->
 <section id="booking">
   <p class="section-label">Get in touch</p>
@@ -1193,7 +1067,6 @@
         </div>
       </div>
     </div>
-
     <form class="booking-form" onsubmit="handleSubmit(event)">
       <div class="form-row">
         <div class="form-group">
@@ -1238,14 +1111,12 @@
     </form>
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">Iryna<span>.</span>Kurekina</a>
   <p class="footer-tagline">Русский язык — Russian language</p>
   <p class="footer-copy">© 2026 Iryna Kurekina<br>Private Russian Language Instruction</p>
 </footer>
-
 <script>
 function handleSubmit(e) {
   e.preventDefault();
@@ -1255,7 +1126,6 @@ function handleSubmit(e) {
   btn.style.borderColor = '#2C6E49';
   btn.disabled = true;
 }
-
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
