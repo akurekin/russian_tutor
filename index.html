@@ -226,16 +226,16 @@
     color: var(--gold-light);
     letter-spacing: 0.05em;
   }
-.portrait-title {
-  font-family: 'Crimson Pro', serif;
-  font-size: 1.8rem;
-  font-style: italic;
-  font-weight: 300;
-  letter-spacing: 0.03em;
-  text-transform: none;
-  color: var(--gold-light);
-  margin-top: 0.5rem;
-}
+  .portrait-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    text-transform: none;
+    color: var(--gold-light);
+    margin-top: 0.5rem;
+  }
   .hero-stats {
     position: absolute;
     bottom: 2.5rem;
@@ -487,10 +487,10 @@
     padding-left: 2.5rem;
   }
   .method-intro {
-  font-size: 1.7rem;
-  line-height: 1.8;
-  font-weight: 500;
-  color: var(--deep);
+    font-size: 1.7rem;
+    line-height: 1.8;
+    font-weight: 500;
+    color: var(--deep);
   }
   .steps {
     display: flex;
@@ -680,6 +680,30 @@
     align-self: flex-start;
   }
   .form-submit:hover { background: var(--red-muted); border-color: var(--red-muted); }
+  .form-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+
+  /* ── FORM STATUS MESSAGE ── */
+  .form-status {
+    display: none;
+    padding: 1rem 1.2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    border: 1px solid;
+  }
+  .form-status.success {
+    display: block;
+    color: #6FCF97;
+    border-color: rgba(111,207,151,0.3);
+    background: rgba(111,207,151,0.07);
+  }
+  .form-status.error {
+    display: block;
+    color: #EB5757;
+    border-color: rgba(235,87,87,0.3);
+    background: rgba(235,87,87,0.07);
+  }
+
   /* ── FOOTER ── */
   footer {
     background: #0F0B08;
@@ -957,7 +981,7 @@
   <div class="testimonials-grid">
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
-      <p class="testimonial-text">I had the pleasure of being taught by Iryna throughout my final year of A-level Russian, and I’m incredibly grateful for her support. She was always calm, kind, and encouraging, which made a real difference during a stressful year. She explained everything so clearly, from grammar and vocabulary to how the exam works, which made the subject feel much more manageable. When I was worried about meeting the speaking exam deadline, she handled the situation so gently, helping me focus and stay calm without adding any pressure. Her support gave me the confidence I needed. I'm so thankful for her guidance. I would highly recommend her to anyone studying Russian. She’s not only a brilliant teacher but also a genuinely kind and supportive person.</p>
+      <p class="testimonial-text">I had the pleasure of being taught by Iryna throughout my final year of A-level Russian, and I'm incredibly grateful for her support. She was always calm, kind, and encouraging, which made a real difference during a stressful year. She explained everything so clearly, from grammar and vocabulary to how the exam works, which made the subject feel much more manageable. When I was worried about meeting the speaking exam deadline, she handled the situation so gently, helping me focus and stay calm without adding any pressure. Her support gave me the confidence I needed. I'm so thankful for her guidance. I would highly recommend her to anyone studying Russian. She's not only a brilliant teacher but also a genuinely kind and supportive person.</p>
       <div class="testimonial-footer">
         <div class="testimonial-avatar">CA</div>
         <div>
@@ -1078,7 +1102,7 @@
         </div>
       </div>
     </div>
-    <form class="booking-form" onsubmit="handleSubmit(event)">
+    <form class="booking-form" id="booking-form">
       <div class="form-row">
         <div class="form-group">
           <label for="fname">First name</label>
@@ -1109,7 +1133,7 @@
           <select id="format">
             <option value="">Select format…</option>
             <option>Online (Zoom)</option>
-            <option>In person — London</option>
+            <option>In person — Plymouth</option>
             <option>Either works for me</option>
           </select>
         </div>
@@ -1118,6 +1142,7 @@
         <label for="goals">Your goals</label>
         <textarea id="goals" placeholder="Tell me a little about why you want to learn Russian and what you hope to achieve…"></textarea>
       </div>
+      <div class="form-status" id="form-status"></div>
       <button type="submit" class="form-submit" id="submit-btn">Send enquiry →</button>
     </form>
   </div>
@@ -1129,23 +1154,69 @@
   <p class="footer-copy">© 2026 Iryna Kurekina<br>Private Russian Language Instruction</p>
 </footer>
 <script>
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = document.getElementById('submit-btn');
-  btn.textContent = 'Sent — I\'ll be in touch shortly ✓';
-  btn.style.background = '#2C6E49';
-  btn.style.borderColor = '#2C6E49';
-  btn.disabled = true;
-}
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // ── FORM SUBMISSION ──
+  document.getElementById('booking-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('submit-btn');
+    const status = document.getElementById('form-status');
+
+    // Collect values
+    const payload = {
+      fname:  document.getElementById('fname').value.trim(),
+      lname:  document.getElementById('lname').value.trim(),
+      email:  document.getElementById('email').value.trim(),
+      level:  document.getElementById('level').value,
+      format: document.getElementById('format').value,
+      goals:  document.getElementById('goals').value.trim(),
+    };
+
+    // Loading state
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    status.className = 'form-status';
+    status.textContent = '';
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        // Success
+        status.className = 'form-status success';
+        status.textContent = '✓ Enquiry sent — I\'ll be in touch within 24 hours.';
+        btn.textContent = 'Sent ✓';
+        btn.style.background = '#2C6E49';
+        btn.style.borderColor = '#2C6E49';
+        // Reset form fields but keep button disabled
+        document.getElementById('booking-form').reset();
+      } else {
+        throw new Error(data.error || 'Something went wrong.');
+      }
+    } catch (err) {
+      // Error state — re-enable so user can try again
+      status.className = 'form-status error';
+      status.textContent = '✗ ' + (err.message || 'Could not send. Please email kurekinai@yahoo.com directly.');
+      btn.textContent = 'Send enquiry →';
+      btn.disabled = false;
     }
   });
-});
+
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 </script>
 </body>
 </html>
