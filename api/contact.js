@@ -29,7 +29,7 @@ export default async function handler(req, res) {
         from: 'Iryna Kurekina Website <onboarding@resend.dev>',
 
         // Where the enquiry lands
-        to: ['kurekinai@yahoo.com'],
+        to: ['akurekin@gmail.com'],
 
         // Reply-to so you can reply directly to the student
         reply_to: email,
