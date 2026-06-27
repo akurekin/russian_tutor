@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://russian-tutor-5cla.vercel.app/sitemap.xml
